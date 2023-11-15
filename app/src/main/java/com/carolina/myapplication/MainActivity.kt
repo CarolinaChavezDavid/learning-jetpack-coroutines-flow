@@ -1,46 +1,58 @@
 package com.carolina.myapplication
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.carolina.myapplication.ui.theme.MyApplicationTheme
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.carolina.myapplication.base.BaseActivity
+import com.carolina.myapplication.base.UseCaseActivity
+import com.carolina.myapplication.base.UseCaseCategory
+import com.carolina.myapplication.base.useCaseCategories
+import com.carolina.myapplication.databinding.ActivityMainBinding
+import com.carolina.myapplication.base.UseCaseCategoryAdapter
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MyApplicationTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        hideUpButton()
+        initRecyclerView()
+    }
+
+    private val onUseCaseCategoryClickListener: (UseCaseCategory) -> Unit =
+        { clickedUseCaseCategory ->
+            val intent = UseCaseActivity.newIntent(applicationContext, clickedUseCaseCategory)
+            startActivity(intent)
+        }
+
+    private fun initRecyclerView() {
+        binding.recyclerView.apply {
+            adapter =
+                UseCaseCategoryAdapter(
+                    useCaseCategories,
+                    onUseCaseCategoryClickListener,
+                )
+            hasFixedSize()
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            addItemDecoration(initItemDecoration())
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+    private fun initItemDecoration(): DividerItemDecoration {
+        val itemDecorator =
+            DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
+        itemDecorator.setDrawable(
+            ContextCompat.getDrawable(
+                applicationContext,
+                R.drawable.recyclerview_divider,
+            )!!,
+        )
+        return itemDecorator
     }
+
+    override fun getToolbarTitle() = "Coroutines and Flows on Android"
 }
