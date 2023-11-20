@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase6
+package com.carolina.myapplication.usecases.coroutines.usecase6
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class RetryNetworkRequestViewModel(
-    private val api: MockApi = mockApi()
+    private val api: MockApi = mockApi(),
 ) : BaseViewModel<UiState>() {
 
     fun performNetworkRequest() {
@@ -33,7 +33,7 @@ class RetryNetworkRequestViewModel(
         initialDelayMillis: Long = 100,
         maxDelayMillis: Long = 1000,
         factor: Double = 2.0,
-        block: suspend () -> T
+        block: suspend () -> T,
     ): T {
         var currentDelay = initialDelayMillis
         repeat(times) {

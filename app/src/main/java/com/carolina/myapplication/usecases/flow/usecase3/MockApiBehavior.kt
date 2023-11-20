@@ -1,10 +1,10 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase3
+package com.carolina.myapplication.usecases.flow.usecase3
 
 import android.content.Context
-import com.google.gson.Gson
-import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock.createFlowMockApi
-import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock.fakeCurrentStockPrices
+import com.carolina.myapplication.usecases.flow.mock.createFlowMockApi
+import com.carolina.myapplication.usecases.flow.mock.fakeCurrentStockPrices
 import com.carolina.myapplication.utils.MockNetworkInterceptor
+import com.google.gson.Gson
 
 fun mockApi(context: Context) =
     createFlowMockApi(
@@ -14,6 +14,6 @@ fun mockApi(context: Context) =
                 body = { Gson().toJson(fakeCurrentStockPrices(context)) },
                 status = 200,
                 delayInMs = 1500,
-                errorFrequencyInPercent = 50
-            )
+                errorFrequencyInPercent = 50,
+            ),
     )

@@ -1,16 +1,14 @@
-package com.lukaslechner.coroutineusecasesonandroid.base
+package com.carolina.myapplication.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.carolina.myapplication.base.UseCase
-import com.carolina.myapplication.base.UseCaseCategory
-import com.lukaslechner.coroutineusecasesonandroid.R
+import com.carolina.myapplication.R
 
 class UseCaseAdapter(
     private val useCaseCategory: UseCaseCategory,
-    private val onUseCaseClick: (UseCase) -> Unit
+    private val onUseCaseClick: (UseCase) -> Unit,
 ) : RecyclerView.Adapter<UseCaseAdapter.ViewHolder>() {
 
     class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
@@ -19,7 +17,7 @@ class UseCaseAdapter(
         val textView = LayoutInflater.from(parent.context)
             .inflate(R.layout.recyclerview_item, parent, false) as TextView
         return ViewHolder(
-            textView
+            textView,
         )
     }
 

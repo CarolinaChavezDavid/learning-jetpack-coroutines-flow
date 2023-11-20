@@ -1,15 +1,16 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase5
+package com.carolina.myapplication.usecases.coroutines.usecase5
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase5Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityNetworkrequestwithtimeoutBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityNetworkrequestwithtimeoutBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase5.UiState
 
 class NetworkRequestWithTimeoutActivity : BaseActivity() {
 

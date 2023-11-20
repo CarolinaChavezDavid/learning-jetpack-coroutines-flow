@@ -1,6 +1,6 @@
 package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase16
 
-import com.lukaslechner.coroutineusecasesonandroid.utils.addCoroutineDebugInfo
+import com.carolina.myapplication.utils.addCoroutineDebugInfo
 import kotlinx.coroutines.*
 import timber.log.Timber
 import java.math.BigInteger

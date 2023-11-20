@@ -1,16 +1,16 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase4
+package com.carolina.myapplication.usecases.coroutines.usecase4
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.lukaslechner.coroutineusecasesonandroid.R
+import com.carolina.myapplication.R
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase4Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityPerformvariableamountofnetworkrequestsconcurrentlyBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityPerformvariableamountofnetworkrequestsconcurrentlyBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 
 class VariableAmountOfNetworkRequestsActivity : BaseActivity() {
 

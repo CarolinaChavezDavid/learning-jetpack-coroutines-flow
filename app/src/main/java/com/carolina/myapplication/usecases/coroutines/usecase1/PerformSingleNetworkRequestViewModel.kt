@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase1
+package com.carolina.myapplication.usecases.coroutines.usecase1
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class PerformSingleNetworkRequestViewModel(
-    private val mockApi: MockApi = mockApi()
+    private val mockApi: MockApi = mockApi(),
 ) : BaseViewModel<UiState>() {
 
     fun performSingleNetworkRequest() {

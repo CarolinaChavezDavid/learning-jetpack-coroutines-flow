@@ -1,6 +1,8 @@
 package com.carolina.myapplication
 
 import android.app.Application
+import com.carolina.myapplication.usecases.coroutines.usecase14.AndroidVersionDatabase
+import com.carolina.myapplication.usecases.coroutines.usecase14.AndroidVersionRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import timber.log.Timber
@@ -13,7 +15,7 @@ class CoroutineUsecasesOnAndroidApplication : Application() {
         val database = AndroidVersionDatabase.getInstance(applicationContext).androidVersionDao()
         AndroidVersionRepository(
             database,
-            applicationScope
+            applicationScope,
         )
     }
 
@@ -24,6 +26,6 @@ class CoroutineUsecasesOnAndroidApplication : Application() {
 
         // Enable Debugging for Kotlin Coroutines in debug builds
         // Prints Coroutine name when logging Thread.currentThread().name
-        System.setProperty("kotlinx.coroutines.debug", if (BuildConfig.DEBUG) "on" else "off")
+        // System.setProperty("kotlinx.coroutines.debug", if (BuildConfig.DEBUG) "on" else "off")
     }
 }

@@ -1,22 +1,21 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase3
+package com.carolina.myapplication.usecases.coroutines.usecase3
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
-import com.lukaslechner.coroutineusecasesonandroid.R
+import com.carolina.myapplication.R
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase3Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityPerformnetworkrequestsconcurrentlyBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityPerformnetworkrequestsconcurrentlyBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 
 class PerformNetworkRequestsConcurrentlyActivity : BaseActivity() {
 
     private val binding by lazy {
         ActivityPerformnetworkrequestsconcurrentlyBinding.inflate(
-            layoutInflater
+            layoutInflater,
         )
     }
 
@@ -28,11 +27,14 @@ class PerformNetworkRequestsConcurrentlyActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnRequestsSequentially.setOnClickListener {
             viewModel.performNetworkRequestsSequentially()
         }
@@ -73,7 +75,7 @@ class PerformNetworkRequestsConcurrentlyActivity : BaseActivity() {
         val versionFeaturesString = versionFeatures.joinToString(separator = "<br><br>") {
             "<b>New Features of ${it.androidVersion.name} </b> <br> ${it.features.joinToString(
                 prefix = "- ",
-                separator = "<br>- "
+                separator = "<br>- ",
             )}"
         }
 

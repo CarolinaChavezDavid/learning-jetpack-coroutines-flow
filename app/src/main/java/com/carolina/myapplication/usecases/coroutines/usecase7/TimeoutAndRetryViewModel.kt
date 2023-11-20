@@ -3,7 +3,6 @@ package com.carolina.myapplication.usecases.coroutines.usecase7
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
 import com.carolina.myapplication.mock.MockApi
-import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7.UiState
 import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7.mockApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll

@@ -4,7 +4,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.carolina.myapplication.R
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
+import com.carolina.myapplication.utils.setGone
 
 abstract class BaseActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.fundamentals
+package com.carolina.myapplication.playground.fundamentals
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -15,7 +15,7 @@ fun main() = runBlocking {
                 println("other tasks is working on ${Thread.currentThread().name}")
                 delay(100)
             }
-        }
+        },
     )
     println("main ends")
 }

@@ -6,6 +6,7 @@ import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.carolina.myapplication.usecases.coroutines.usecase15.AnalyticsWorker
 import java.util.concurrent.TimeUnit
 
 class WorkManagerViewModel(private val context: Context) : ViewModel() {

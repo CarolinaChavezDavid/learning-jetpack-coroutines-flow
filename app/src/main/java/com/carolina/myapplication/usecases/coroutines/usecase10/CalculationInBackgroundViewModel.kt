@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase10
+package com.carolina.myapplication.usecases.coroutines.usecase10
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
@@ -10,19 +10,19 @@ import java.math.BigInteger
 import kotlin.system.measureTimeMillis
 
 class CalculationInBackgroundViewModel(
-    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default,
 ) : BaseViewModel<UiState>() {
 
     fun performCalculation(factorialOf: Int) {
         uiState.value = UiState.Loading
         viewModelScope.launch {
             try {
-                var result: BigInteger = BigInteger.ZERO
+                var result: BigInteger
                 val computationDuration = measureTimeMillis {
                     result = calculateFactorialOf(factorialOf)
                 }
 
-                var resultString = ""
+                var resultString: String
                 val stringConversionDuration = measureTimeMillis {
                     resultString = convertToString(result)
                 }

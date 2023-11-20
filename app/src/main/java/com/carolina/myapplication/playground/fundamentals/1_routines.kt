@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.fundamentals
+package com.carolina.myapplication.playground.fundamentals
 
 fun main() {
     println("main starts")

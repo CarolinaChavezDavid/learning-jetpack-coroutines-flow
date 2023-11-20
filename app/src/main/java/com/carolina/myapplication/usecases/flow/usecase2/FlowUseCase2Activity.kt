@@ -1,13 +1,13 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase2
+package com.carolina.myapplication.usecases.flow.usecase2
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.flowUseCase2Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityFlowUsecase1Binding
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityFlowUsecase1Binding
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 import kotlinx.coroutines.Dispatchers
 import org.joda.time.LocalDateTime
 import org.joda.time.format.DateTimeFormat
@@ -20,7 +20,7 @@ class FlowUseCase2Activity : BaseActivity() {
     private val viewModel: FlowUseCase2ViewModel by viewModels {
         ViewModelFactory(
             NetworkStockPriceDataSource(mockApi(applicationContext)),
-            Dispatchers.Default
+            Dispatchers.Default,
         )
     }
 

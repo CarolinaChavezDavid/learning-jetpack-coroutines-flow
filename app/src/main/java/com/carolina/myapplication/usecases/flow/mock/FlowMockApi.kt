@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock
+package com.carolina.myapplication.usecases.flow.mock
 
 import com.carolina.myapplication.utils.MockNetworkInterceptor
 import okhttp3.OkHttpClient

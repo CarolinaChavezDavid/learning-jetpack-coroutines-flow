@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase8
+package com.carolina.myapplication.usecases.coroutines.usecase8
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -2,6 +2,7 @@ package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase1
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
+import com.carolina.myapplication.usecases.coroutines.usecase14.AndroidVersionRepository
 import kotlinx.coroutines.launch
 
 class ContinueCoroutineWhenUserLeavesScreenViewModel(

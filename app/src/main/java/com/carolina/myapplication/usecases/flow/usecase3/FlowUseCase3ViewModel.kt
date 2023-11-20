@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase3
+package com.carolina.myapplication.usecases.flow.usecase3
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.onStart
 import timber.log.Timber
 
 class FlowUseCase3ViewModel(
-    stockPriceDataSource: StockPriceDataSource
+    stockPriceDataSource: StockPriceDataSource,
 ) : BaseViewModel<UiState>() {
 
     /*

@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase1
+package com.carolina.myapplication.usecases.coroutines.usecase1
 
 import com.carolina.myapplication.mock.AndroidVersion
 

@@ -5,7 +5,6 @@ import android.os.Looper
 import com.carolina.myapplication.base.BaseViewModel
 import com.carolina.myapplication.mock.VersionFeatures
 import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7.callbacks.CallbackMockApi
-import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7.callbacks.UiState
 import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7.callbacks.mockApi
 import retrofit2.Call
 import retrofit2.Callback

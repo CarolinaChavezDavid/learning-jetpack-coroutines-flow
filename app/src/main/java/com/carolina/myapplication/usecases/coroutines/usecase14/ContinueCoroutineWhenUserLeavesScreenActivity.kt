@@ -1,17 +1,21 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14
+package com.carolina.myapplication.usecases.coroutines.usecase14
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.lukaslechner.coroutineusecasesonandroid.CoroutineUsecasesOnAndroidApplication
-import com.lukaslechner.coroutineusecasesonandroid.R
+import com.carolina.myapplication.CoroutineUsecasesOnAndroidApplication
+import com.carolina.myapplication.R
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase14Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityQueryfromroomdatabaseBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityQueryfromroomdatabaseBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14.ContinueCoroutineWhenUserLeavesScreenViewModel
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14.DataSource
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14.UiState
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14.ViewModelFactory
 
 class ContinueCoroutineWhenUserLeavesScreenActivity : BaseActivity() {
 
@@ -26,11 +30,14 @@ class ContinueCoroutineWhenUserLeavesScreenActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            Observer { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnLoadData.setOnClickListener {
             viewModel.loadData()
         }
@@ -85,8 +92,8 @@ class ContinueCoroutineWhenUserLeavesScreenActivity : BaseActivity() {
         val readableVersions = uiState.recentVersions.map { "API ${it.apiLevel}: ${it.name}" }
         textViewResult.text = fromHtml(
             "<b>Recent Android Versions [from ${uiState.dataSource.name}]</b><br>${readableVersions.joinToString(
-                separator = "<br>"
-            )}"
+                separator = "<br>",
+            )}",
         )
     }
 

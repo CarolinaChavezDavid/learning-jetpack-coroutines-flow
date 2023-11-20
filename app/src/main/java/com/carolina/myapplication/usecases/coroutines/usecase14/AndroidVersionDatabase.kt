@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14
+package com.carolina.myapplication.usecases.coroutines.usecase14
 
 import android.content.Context
 import androidx.room.Database
@@ -26,10 +26,7 @@ abstract class AndroidVersionDatabase : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 AndroidVersionDatabase::class.java,
-                "androidversions_usecase12.db"
+                "androidversions_usecase12.db",
             ).build()
-
     }
-
 }
-

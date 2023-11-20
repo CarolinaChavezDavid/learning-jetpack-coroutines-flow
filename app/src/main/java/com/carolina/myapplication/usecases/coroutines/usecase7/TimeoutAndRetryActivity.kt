@@ -1,16 +1,15 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7
+package com.carolina.myapplication.usecases.coroutines.usecase7
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase7Description
-import com.carolina.myapplication.usecases.coroutines.usecase7.TimeoutAndRetryViewModel
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityRetrynetworkrequestBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityRetrynetworkrequestBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 
 class TimeoutAndRetryActivity : BaseActivity() {
 
@@ -22,11 +21,14 @@ class TimeoutAndRetryActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            Observer { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnPerformSingleNetworkRequest.setOnClickListener {
             viewModel.performNetworkRequest()
         }
@@ -60,7 +62,7 @@ class TimeoutAndRetryActivity : BaseActivity() {
         val versionFeaturesString = versionFeatures.map {
             "<b>New Features of ${it.androidVersion.name} </b> <br> ${it.features.joinToString(
                 prefix = "- ",
-                separator = "<br>- "
+                separator = "<br>- ",
             )}"
         }.joinToString(separator = "<br><br>")
 

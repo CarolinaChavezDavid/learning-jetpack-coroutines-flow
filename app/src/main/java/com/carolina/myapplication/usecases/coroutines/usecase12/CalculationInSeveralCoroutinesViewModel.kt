@@ -2,6 +2,7 @@ package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase1
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
+import com.carolina.myapplication.usecases.coroutines.usecase12.FactorialCalculator
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

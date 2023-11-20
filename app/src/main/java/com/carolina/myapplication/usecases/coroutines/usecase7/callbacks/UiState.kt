@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase7.callbacks
+package com.carolina.myapplication.usecases.coroutines.usecase7.callbacks
 
 import com.carolina.myapplication.mock.VersionFeatures
 

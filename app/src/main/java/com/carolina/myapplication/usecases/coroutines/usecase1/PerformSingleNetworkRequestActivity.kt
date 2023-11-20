@@ -1,15 +1,15 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase1
+package com.carolina.myapplication.usecases.coroutines.usecase1
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase1Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityPerformsinglenetworkrequestBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityPerformsinglenetworkrequestBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 
 class PerformSingleNetworkRequestActivity : BaseActivity() {
 
@@ -21,11 +21,14 @@ class PerformSingleNetworkRequestActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            Observer { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnPerformSingleNetworkRequest.setOnClickListener {
             viewModel.performSingleNetworkRequest()
         }
@@ -56,7 +59,7 @@ class PerformSingleNetworkRequestActivity : BaseActivity() {
         btnPerformSingleNetworkRequest.isEnabled = true
         val readableVersions = uiState.recentVersions.map { "API ${it.apiLevel}: ${it.name}" }
         textViewResult.text = fromHtml(
-            "<b>Recent Android Versions</b><br>${readableVersions.joinToString(separator = "<br>")}"
+            "<b>Recent Android Versions</b><br>${readableVersions.joinToString(separator = "<br>")}",
         )
     }
 

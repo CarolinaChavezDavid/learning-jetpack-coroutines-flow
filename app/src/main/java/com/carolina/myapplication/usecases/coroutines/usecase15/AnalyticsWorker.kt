@@ -1,10 +1,10 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase15
+package com.carolina.myapplication.usecases.coroutines.usecase15
 
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.lukaslechner.coroutineusecasesonandroid.mock.createMockAnalyticsApi
 import com.carolina.myapplication.utils.MockNetworkInterceptor
+import com.lukaslechner.coroutineusecasesonandroid.mock.createMockAnalyticsApi
 import timber.log.Timber
 
 class AnalyticsWorker(appContext: Context, workerParameters: WorkerParameters) :
@@ -30,8 +30,8 @@ class AnalyticsWorker(appContext: Context, workerParameters: WorkerParameters) :
                     "http://localhost/analytics/workmanager-screen-opened",
                     { "true" },
                     200,
-                    1500
-                )
+                    1500,
+                ),
         )
     }
 }

@@ -1,15 +1,16 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase17
+package com.carolina.myapplication.usecases.coroutines.usecase17
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase17Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityCalculateonmainBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
-
+import com.carolina.myapplication.databinding.ActivityCalculateonmainBinding
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase17.PerformCalculationOnMainThreadViewModel
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase17.UiState
 
 class PerformCalculationOnMainThreadActivity : BaseActivity() {
 
@@ -21,11 +22,14 @@ class PerformCalculationOnMainThreadActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            Observer { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnCalculateOnMain.setOnClickListener {
             val factorialOf = binding.editTextFactorialOf.text.toString().toIntOrNull()
             if (factorialOf != null) {

@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.fundamentals
+package com.carolina.myapplication.playground.fundamentals
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -9,7 +9,7 @@ fun main() = runBlocking {
     println("main starts")
     joinAll(
         async { coroutine(1, 500) },
-        async { coroutine(2, 300) }
+        async { coroutine(2, 300) },
     )
     println("main ends")
 }

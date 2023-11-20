@@ -1,14 +1,15 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase3
+package com.carolina.myapplication.usecases.coroutines.usecase3
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
 import com.carolina.myapplication.mock.MockApi
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase3.mockApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
 class PerformNetworkRequestsConcurrentlyViewModel(
-    private val mockApi: MockApi = mockApi()
+    private val mockApi: MockApi = mockApi(),
 ) : BaseViewModel<UiState>() {
 
     fun performNetworkRequestsSequentially() {
@@ -21,7 +22,6 @@ class PerformNetworkRequestsConcurrentlyViewModel(
 
                 val versionFeatures = listOf(oreoFeatures, pieFeatures, android10Features)
                 uiState.value = UiState.Success(versionFeatures)
-
             } catch (exception: Exception) {
                 uiState.value = UiState.Error("Network Request failed")
             }

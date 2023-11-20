@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.carolina.myapplication.R
 import com.carolina.myapplication.databinding.ActivityUsecasesBinding
-import com.lukaslechner.coroutineusecasesonandroid.base.UseCaseAdapter
 
 class UseCaseActivity : BaseActivity() {
 

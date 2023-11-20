@@ -1,16 +1,16 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase8
+package com.carolina.myapplication.usecases.coroutines.usecase8
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.lukaslechner.coroutineusecasesonandroid.R
+import com.carolina.myapplication.R
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase8Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityQueryfromroomdatabaseBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityQueryfromroomdatabaseBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 
 class RoomAndCoroutinesActivity : BaseActivity() {
 
@@ -21,7 +21,7 @@ class RoomAndCoroutinesActivity : BaseActivity() {
     private val viewModel: RoomAndCoroutinesViewModel by viewModels {
         ViewModelFactory(
             mockApi(),
-            AndroidVersionDatabase.getInstance(applicationContext).androidVersionDao()
+            AndroidVersionDatabase.getInstance(applicationContext).androidVersionDao(),
         )
     }
 
@@ -29,11 +29,14 @@ class RoomAndCoroutinesActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            Observer { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnLoadData.setOnClickListener {
             viewModel.loadData()
         }
@@ -88,8 +91,8 @@ class RoomAndCoroutinesActivity : BaseActivity() {
         val readableVersions = uiState.recentVersions.map { "API ${it.apiLevel}: ${it.name}" }
         textViewResult.text = fromHtml(
             "<b>Recent Android Versions [from ${uiState.dataSource.name}]</b><br>${readableVersions.joinToString(
-                separator = "<br>"
-            )}"
+                separator = "<br>",
+            )}",
         )
     }
 

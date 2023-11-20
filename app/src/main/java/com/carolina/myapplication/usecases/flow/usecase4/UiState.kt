@@ -1,6 +1,6 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase4
+package com.carolina.myapplication.usecases.flow.usecase4
 
-import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock.Stock
+import com.carolina.myapplication.usecases.flow.mock.Stock
 
 sealed class UiState {
     object Loading : UiState()

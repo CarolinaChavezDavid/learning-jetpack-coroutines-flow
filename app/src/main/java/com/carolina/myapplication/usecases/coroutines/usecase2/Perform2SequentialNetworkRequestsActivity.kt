@@ -6,10 +6,10 @@ import androidx.lifecycle.Observer
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase2Description
 import com.carolina.myapplication.databinding.ActivityPerform2sequentialnetworkrequestsBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 
 class Perform2SequentialNetworkRequestsActivity : BaseActivity() {
 

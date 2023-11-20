@@ -1,9 +1,9 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase8
+package com.carolina.myapplication.usecases.coroutines.usecase8
 
-import com.google.gson.Gson
 import com.carolina.myapplication.mock.createMockApi
 import com.carolina.myapplication.mock.mockAndroidVersions
 import com.carolina.myapplication.utils.MockNetworkInterceptor
+import com.google.gson.Gson
 
 fun mockApi() =
     createMockApi(
@@ -12,6 +12,6 @@ fun mockApi() =
                 "http://localhost/recent-android-versions",
                 { Gson().toJson(mockAndroidVersions) },
                 200,
-                5000
-            )
+                5000,
+            ),
     )

@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase16
+package com.carolina.myapplication.usecases.coroutines.usecase16
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,15 @@ import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lukaslechner.coroutineusecasesonandroid.R
+import com.carolina.myapplication.R
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase16Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityPerformanceanalysisBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityPerformanceanalysisBinding
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase16.PerformanceAnalysisViewModel
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase16.UiState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
@@ -23,7 +25,7 @@ class PerformanceAnalysisActivity : BaseActivity() {
 
     private val binding by lazy {
         ActivityPerformanceanalysisBinding.inflate(
-            layoutInflater
+            layoutInflater,
         )
     }
 
@@ -37,11 +39,14 @@ class PerformanceAnalysisActivity : BaseActivity() {
         val numberOfCores = Runtime.getRuntime().availableProcessors()
         binding.textViewNumberOfCores.text = getString(R.string.device_cores, numberOfCores)
         viewModel.uiState()
-            .observe(this@PerformanceAnalysisActivity, Observer { uiState ->
-                if (uiState != null) {
-                    render(uiState)
-                }
-            })
+            .observe(
+                this@PerformanceAnalysisActivity,
+                Observer { uiState ->
+                    if (uiState != null) {
+                        render(uiState)
+                    }
+                },
+            )
         binding.btnCalculate.setOnClickListener {
             val factorialOf = binding.editTextFactorialOf.text.toString().toIntOrNull()
             val numberOfThreads = binding.editTextNumberOfThreads.text.toString().toIntOrNull()
@@ -50,14 +55,14 @@ class PerformanceAnalysisActivity : BaseActivity() {
                     factorialOf,
                     numberOfThreads,
                     selectedDispatcher,
-                    binding.switchYield.isChecked
+                    binding.switchYield.isChecked,
                 )
             }
         }
         ArrayAdapter.createFromResource(
             this@PerformanceAnalysisActivity,
             R.array.dispatchers,
-            android.R.layout.simple_spinner_item
+            android.R.layout.simple_spinner_item,
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerDispatcher.adapter = adapter
@@ -71,7 +76,7 @@ class PerformanceAnalysisActivity : BaseActivity() {
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
-                    id: Long
+                    id: Long,
                 ) {
                     when (parent?.getItemAtPosition(position)) {
                         "Default" -> selectedDispatcher = Dispatchers.Default

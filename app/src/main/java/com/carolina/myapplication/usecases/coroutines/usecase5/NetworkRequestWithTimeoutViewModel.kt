@@ -1,15 +1,17 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase5
+package com.carolina.myapplication.usecases.coroutines.usecase5
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
 import com.carolina.myapplication.mock.MockApi
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase5.UiState
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase5.mockApi
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 
 class NetworkRequestWithTimeoutViewModel(
-    private val api: MockApi = mockApi()
+    private val api: MockApi = mockApi(),
 ) : BaseViewModel<UiState>() {
 
     fun performNetworkRequest(timeout: Long) {
@@ -50,5 +52,4 @@ class NetworkRequestWithTimeoutViewModel(
             }
         }
     }
-
 }

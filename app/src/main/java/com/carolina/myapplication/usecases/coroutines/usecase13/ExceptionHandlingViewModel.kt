@@ -1,13 +1,18 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase13
+package com.carolina.myapplication.usecases.coroutines.usecase13
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
 import com.carolina.myapplication.mock.MockApi
-import kotlinx.coroutines.*
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase13.mockApi
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 import timber.log.Timber
 
 class ExceptionHandlingViewModel(
-    private val api: MockApi = mockApi()
+    private val api: MockApi = mockApi(),
 ) : BaseViewModel<UiState>() {
 
     fun handleExceptionWithTryCatch() {
@@ -15,7 +20,6 @@ class ExceptionHandlingViewModel(
         viewModelScope.launch {
             try {
                 api.getAndroidVersionFeatures(27)
-
             } catch (exception: Exception) {
                 uiState.value = UiState.Error("Network Request failed: $exception")
             }
@@ -36,7 +40,6 @@ class ExceptionHandlingViewModel(
     fun showResultsEvenIfChildCoroutineFails() {
         uiState.value = UiState.Loading
         viewModelScope.launch {
-
             supervisorScope {
                 val oreoFeaturesDeferred = async { api.getAndroidVersionFeatures(27) }
                 val pieFeaturesDeferred = async { api.getAndroidVersionFeatures(28) }
@@ -45,7 +48,7 @@ class ExceptionHandlingViewModel(
                 val versionFeatures = listOf(
                     oreoFeaturesDeferred,
                     pieFeaturesDeferred,
-                    android10FeaturesDeferred
+                    android10FeaturesDeferred,
                 ).mapNotNull {
                     try {
                         it.await()

@@ -1,17 +1,22 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase12
+package com.carolina.myapplication.usecases.coroutines.usecase12
 
-import com.lukaslechner.coroutineusecasesonandroid.utils.addCoroutineDebugInfo
-import kotlinx.coroutines.*
+import com.carolina.myapplication.utils.addCoroutineDebugInfo
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.math.BigInteger
 
 class FactorialCalculator(
-    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default,
 ) {
 
     suspend fun calculateFactorial(
         factorialOf: Int,
-        numberOfCoroutines: Int
+        numberOfCoroutines: Int,
     ): BigInteger {
         return withContext(defaultDispatcher) {
             val subRanges = createSubRangeList(factorialOf, numberOfCoroutines)
@@ -20,15 +25,15 @@ class FactorialCalculator(
                     calculateFactorialOfSubRange(subRange)
                 }
             }.awaitAll()
-                .fold(BigInteger.ONE, { acc, element ->
+                .fold(BigInteger.ONE) { acc, element ->
                     ensureActive()
                     acc.multiply(element)
-                })
+                }
         }
     }
 
     suspend fun calculateFactorialOfSubRange(
-        subRange: SubRange
+        subRange: SubRange,
     ): BigInteger {
         return withContext(defaultDispatcher) {
             Timber.d(addCoroutineDebugInfo("Calculate factorial of $subRange"))
@@ -43,7 +48,7 @@ class FactorialCalculator(
 
     fun createSubRangeList(
         factorialOf: Int,
-        numberOfSubRanges: Int
+        numberOfSubRanges: Int,
     ): List<SubRange> {
         val quotient = factorialOf.div(numberOfSubRanges)
         val rangesList = mutableListOf<SubRange>()
@@ -53,8 +58,8 @@ class FactorialCalculator(
             rangesList.add(
                 SubRange(
                     curStartIndex,
-                    curStartIndex + (quotient - 1)
-                )
+                    curStartIndex + (quotient - 1),
+                ),
             )
             curStartIndex += quotient
         }

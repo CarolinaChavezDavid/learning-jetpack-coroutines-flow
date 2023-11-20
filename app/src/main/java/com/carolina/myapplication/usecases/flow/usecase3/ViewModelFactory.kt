@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase3
+package com.carolina.myapplication.usecases.flow.usecase3
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -1,10 +1,12 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase15
+package com.carolina.myapplication.usecases.coroutines.usecase15
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase15Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityWorkmangerBinding
+import com.carolina.myapplication.databinding.ActivityWorkmangerBinding
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase15.ViewModelFactory
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase15.WorkManagerViewModel
 
 class WorkManagerActivity : BaseActivity() {
 

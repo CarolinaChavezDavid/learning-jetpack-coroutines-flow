@@ -1,7 +1,7 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase3
+package com.carolina.myapplication.usecases.flow.usecase3
 
-import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock.FlowMockApi
-import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock.Stock
+import com.carolina.myapplication.usecases.flow.mock.FlowMockApi
+import com.carolina.myapplication.usecases.flow.mock.Stock
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

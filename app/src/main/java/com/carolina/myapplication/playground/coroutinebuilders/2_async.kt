@@ -1,11 +1,10 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.coroutinebuilders
+package com.carolina.myapplication.playground.coroutinebuilders
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
-fun main() = runBlocking<Unit> {
-
+fun main() = runBlocking {
     val startTime = System.currentTimeMillis()
 
     val deferred1 = async {

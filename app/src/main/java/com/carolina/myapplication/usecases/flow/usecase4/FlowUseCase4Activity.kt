@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase4
+package com.carolina.myapplication.usecases.flow.usecase4
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -7,10 +7,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.flowUseCase4Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityFlowUsecase1Binding
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityFlowUsecase1Binding
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
 import kotlinx.coroutines.launch
 import org.joda.time.LocalDateTime
 import org.joda.time.format.DateTimeFormat

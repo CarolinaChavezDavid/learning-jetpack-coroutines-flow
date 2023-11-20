@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.fundamentals
+package com.carolina.myapplication.playground.fundamentals
 
 import android.os.Handler
 import android.os.Looper
@@ -10,12 +10,12 @@ fun main() = runBlocking {
     println("main starts")
     joinAll(
         async { delayDemonstration(1, 500) },
-        async { delayDemonstration(2, 300) }
+        async { delayDemonstration(2, 300) },
     )
     println("main ends")
 }
 
-suspend fun delayDemonstration(number: Int, delay: Long) {
+fun delayDemonstration(number: Int, delay: Long) {
     println("Coroutine $number starts work")
 
     // delay(delay)

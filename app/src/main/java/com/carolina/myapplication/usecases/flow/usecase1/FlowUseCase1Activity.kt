@@ -1,13 +1,17 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1
+package com.carolina.myapplication.usecases.flow.usecase1
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.flowUseCase1Description
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityFlowUsecase1Binding
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityFlowUsecase1Binding
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
+import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.FlowUseCase1ViewModel
+import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.NetworkStockPriceDataSource
+import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.UiState
+import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.ViewModelFactory
 import org.joda.time.LocalDateTime
 import org.joda.time.format.DateTimeFormat
 

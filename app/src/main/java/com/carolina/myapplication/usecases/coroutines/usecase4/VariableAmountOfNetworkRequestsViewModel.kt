@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase4
+package com.carolina.myapplication.usecases.coroutines.usecase4
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
@@ -8,7 +8,7 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
 class VariableAmountOfNetworkRequestsViewModel(
-    private val mockApi: MockApi = mockApi()
+    private val mockApi: MockApi = mockApi(),
 ) : BaseViewModel<UiState>() {
 
     fun performNetworkRequestsSequentially() {

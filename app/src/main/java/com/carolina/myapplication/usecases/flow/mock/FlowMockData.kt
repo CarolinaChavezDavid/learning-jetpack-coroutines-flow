@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.mock
+package com.carolina.myapplication.usecases.flow.mock
 
 import android.content.Context
 import com.opencsv.CSVReader
@@ -13,7 +13,7 @@ data class Stock(
     val country: String,
     val currentPrice: Float,
     val currency: Currency = Currency.DOLLAR,
-    val priceTrend: PriceTrend = PriceTrend.UNKNOWN
+    val priceTrend: PriceTrend = PriceTrend.UNKNOWN,
 )
 
 enum class Currency {

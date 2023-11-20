@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase8
+package com.carolina.myapplication.usecases.coroutines.usecase8
 
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
@@ -7,12 +7,13 @@ import kotlinx.coroutines.launch
 
 class RoomAndCoroutinesViewModel(
     private val api: MockApi,
-    private val database: AndroidVersionDao
+    private val database: AndroidVersionDao,
 ) : BaseViewModel<UiState>() {
 
     fun loadData() {
         uiState.value = UiState.Loading.LoadFromDb
-
+        // This logic should be done in the repository file, because the viewmodel should only execute UI related logic
+        // due to the separation of concerns
         viewModelScope.launch {
             val localVersions = database.getAndroidVersions()
             if (localVersions.isEmpty()) {
@@ -45,5 +46,5 @@ class RoomAndCoroutinesViewModel(
 
 enum class DataSource(val dataSourceName: String) {
     DATABASE("Database"),
-    NETWORK("Network")
+    NETWORK("Network"),
 }

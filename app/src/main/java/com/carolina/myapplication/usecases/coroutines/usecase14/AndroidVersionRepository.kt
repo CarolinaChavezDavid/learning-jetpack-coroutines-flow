@@ -1,7 +1,8 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14
+package com.carolina.myapplication.usecases.coroutines.usecase14
 
 import com.carolina.myapplication.mock.AndroidVersion
 import com.carolina.myapplication.mock.MockApi
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase14.mockApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -10,7 +11,7 @@ import timber.log.Timber
 class AndroidVersionRepository(
     private var database: AndroidVersionDao,
     private val scope: CoroutineScope,
-    private val api: MockApi = mockApi()
+    private val api: MockApi = mockApi(),
 ) {
 
     suspend fun getLocalAndroidVersions(): List<AndroidVersion> {
@@ -20,14 +21,14 @@ class AndroidVersionRepository(
     suspend fun loadAndStoreRemoteAndroidVersions(): List<AndroidVersion> {
         return scope.async {
             val recentVersions = api.getRecentAndroidVersions()
-                Timber.d("Recent Android versions loaded")
-                for (recentVersion in recentVersions) {
-                    Timber.d("Insert $recentVersion to database")
-                    database.insert(recentVersion.mapToEntity())
-                }
-                recentVersions
-            }.await()
-        }
+            Timber.d("Recent Android versions loaded")
+            for (recentVersion in recentVersions) {
+                Timber.d("Insert $recentVersion to database")
+                database.insert(recentVersion.mapToEntity())
+            }
+            recentVersions
+        }.await()
+    }
 
     fun clearDatabase() {
         scope.launch {

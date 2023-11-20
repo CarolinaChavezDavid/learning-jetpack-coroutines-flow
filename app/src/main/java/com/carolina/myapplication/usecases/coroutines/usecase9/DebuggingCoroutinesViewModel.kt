@@ -3,7 +3,7 @@ package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase9
 import androidx.lifecycle.viewModelScope
 import com.carolina.myapplication.base.BaseViewModel
 import com.carolina.myapplication.mock.MockApi
-import com.lukaslechner.coroutineusecasesonandroid.utils.addCoroutineDebugInfo
+import com.carolina.myapplication.utils.addCoroutineDebugInfo
 import kotlinx.coroutines.*
 import timber.log.Timber
 

@@ -1,22 +1,22 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase2.rx
+package com.carolina.myapplication.usecases.coroutines.usecase2.rx
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.carolina.myapplication.base.BaseActivity
 import com.carolina.myapplication.base.useCase2UsingRxDescription
-import com.carolina.myapplication.usecases.coroutines.usecase2.rx.UiState
-import com.lukaslechner.coroutineusecasesonandroid.databinding.ActivityPerform2sequentialnetworkrequestsBinding
-import com.lukaslechner.coroutineusecasesonandroid.utils.fromHtml
-import com.lukaslechner.coroutineusecasesonandroid.utils.setGone
-import com.lukaslechner.coroutineusecasesonandroid.utils.setVisible
-import com.lukaslechner.coroutineusecasesonandroid.utils.toast
+import com.carolina.myapplication.databinding.ActivityPerform2sequentialnetworkrequestsBinding
+import com.carolina.myapplication.utils.fromHtml
+import com.carolina.myapplication.utils.setGone
+import com.carolina.myapplication.utils.setVisible
+import com.carolina.myapplication.utils.toast
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase2.rx.SequentialNetworkRequestsRxViewModel
 
 class SequentialNetworkRequestsRxActivity : BaseActivity() {
 
     private val binding by lazy {
         ActivityPerform2sequentialnetworkrequestsBinding.inflate(
-            layoutInflater
+            layoutInflater,
         )
     }
 
@@ -27,11 +27,14 @@ class SequentialNetworkRequestsRxActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel.uiState().observe(this, Observer { uiState ->
-            if (uiState != null) {
-                render(uiState)
-            }
-        })
+        viewModel.uiState().observe(
+            this,
+            Observer { uiState ->
+                if (uiState != null) {
+                    render(uiState)
+                }
+            },
+        )
         binding.btnRequestsSequentially.setOnClickListener {
             viewModel.perform2SequentialNetworkRequest()
         }
@@ -60,10 +63,10 @@ class SequentialNetworkRequestsRxActivity : BaseActivity() {
         progressBar.setGone()
         textViewResult.text = fromHtml(
             "<b>Features of most recent Android Version \" ${uiState.versionFeatures.androidVersion.name} \"</b><br>" +
-                    uiState.versionFeatures.features.joinToString(
-                        prefix = "- ",
-                        separator = "<br>- "
-                    )
+                uiState.versionFeatures.features.joinToString(
+                    prefix = "- ",
+                    separator = "<br>- ",
+                ),
         )
     }
 

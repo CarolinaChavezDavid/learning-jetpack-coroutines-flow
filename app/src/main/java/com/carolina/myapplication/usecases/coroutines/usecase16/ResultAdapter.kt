@@ -1,15 +1,16 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase16
+package com.carolina.myapplication.usecases.coroutines.usecase16
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.lukaslechner.coroutineusecasesonandroid.R
-import com.lukaslechner.coroutineusecasesonandroid.databinding.RecyclerviewItemCalculationResultBinding
+import com.carolina.myapplication.R
+import com.carolina.myapplication.databinding.RecyclerviewItemCalculationResultBinding
+import com.lukaslechner.coroutineusecasesonandroid.usecases.coroutines.usecase16.UiState
 
 class ResultAdapter(
-    private val results: MutableList<UiState.Success> = mutableListOf()
+    private val results: MutableList<UiState.Success> = mutableListOf(),
 ) : RecyclerView.Adapter<ResultAdapter.ViewHolder>() {
 
     class ViewHolder(
@@ -20,7 +21,7 @@ class ResultAdapter(
         val yielding: TextView,
         val calculationDuration: TextView,
         val stringConversionDuration: TextView,
-        val computationResult: TextView
+        val computationResult: TextView,
 
     ) :
         RecyclerView.ViewHolder(layout)
@@ -38,7 +39,7 @@ class ResultAdapter(
             binding.textViewResultYield,
             binding.textViewDuration,
             binding.textViewStringConversionDuration,
-            binding.textViewResult
+            binding.textViewResult,
         )
     }
 
