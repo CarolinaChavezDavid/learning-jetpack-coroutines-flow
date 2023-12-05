@@ -1,13 +1,16 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.structuredconcurrency
+package com.carolina.myapplication.playground.structuredconcurrency
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
-
     println("Job of GlobalScope: ${GlobalScope.coroutineContext[Job]}")
 
     val coroutineExceptionHandler = CoroutineExceptionHandler { context, throwable ->
-
     }
     val job = GlobalScope.launch(coroutineExceptionHandler) {
         val child = launch {
@@ -28,5 +31,4 @@ fun main() = runBlocking {
     job.cancel()
 
     delay(300)
-
 }

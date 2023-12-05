@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1
+package com.carolina.myapplication.usecases.flow.usecase1
 
 import com.carolina.myapplication.usecases.flow.mock.FlowMockApi
 import com.carolina.myapplication.usecases.flow.mock.Stock

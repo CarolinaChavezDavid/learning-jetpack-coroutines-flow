@@ -1,13 +1,15 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.structuredconcurrency
+package com.carolina.myapplication.playground.structuredconcurrency
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 fun main() {
-
     val scope = CoroutineScope(Job())
 
     scope.launch {
-
         doSomeTasks()
 
         launch {

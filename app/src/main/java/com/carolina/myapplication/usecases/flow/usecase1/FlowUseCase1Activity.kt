@@ -9,7 +9,6 @@ import com.carolina.myapplication.utils.setGone
 import com.carolina.myapplication.utils.setVisible
 import com.carolina.myapplication.utils.toast
 import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.FlowUseCase1ViewModel
-import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.NetworkStockPriceDataSource
 import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.UiState
 import com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1.ViewModelFactory
 import org.joda.time.LocalDateTime

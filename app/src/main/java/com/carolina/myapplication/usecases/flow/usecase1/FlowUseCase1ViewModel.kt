@@ -3,6 +3,7 @@ package com.lukaslechner.coroutineusecasesonandroid.usecases.flow.usecase1
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.carolina.myapplication.base.BaseViewModel
+import com.carolina.myapplication.usecases.flow.usecase1.StockPriceDataSource
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart

@@ -13,6 +13,42 @@
 </details>
 
 
+# Coroutines
+
+Coroutines are light-weighted threads. Coroutines can be suspended and resume, in contrast to blocked threads, other task can be performed while coroutines are suspended, while coroutines are suspended they don't block any thread
+
+
+> a general rule in concurrent programming is to avoid shared mutable states whenever is possible
+
+
+### Coroutine builders
+
+* **async**
+* **launch** when you don't need to access the value inside the coroutine. It returns a **Job** object
+* **runBlocking**
+* **withContext**
+
+* **Job** is a reference or a representation of the code that is started with launch. Can be use to check the state in which the coroutine is and can cancel the coroutine (Job.Join() suspends the coroutine to wait till it's done to finish)*
+
+### Coroutines Scopes
+   
+Scopes control the lifetime of the coroutine, it defines when the coroutine is cancelled
+
+### Coroutines context 
+It's the core of a coroutine, is define on the scope and consist of several context elements, the most impost are: dispatcher, job, error handler and name
+
++ **Dispatcher** defines on which thread or thread pool a coroutine will be launched
+  + **Dispatcher.Main** Only available in applications with a user interface. This is a special thread (Android main thread) that can perform UI operations. Define as the dispatcher for the viewModelScope.
+  + **Dispatcher.IO** Perform IO-related operations, blocking operations, uses shared thread pool internally, limited to 64 threads.
+  + **Dispatcher.Default** Optimised CPU-intense work, uses shared thread pool internally, the maximum number of threads is equal to the number of CPU cores. A coroutine uses the Default dispatcher ir no other is defined.
++ **Job** Control the life cycle of a coroutine and also build a parent child hierarchies of coroutines
+
+### Suspend functions
+
+Suspend functions are special function that perform some long running operations in the main thread and can be suspended in every suspension point, can only be called from another suspend function or a coroutine
+
+* **Main-safety** The ability of calling suspend functions on the main thread in a non-blocking way
+
 
 # <img width="50" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/3b6c5c00-7669-4ebf-8a3f-cca86ad2a187"> Kotlin-Flow
 
