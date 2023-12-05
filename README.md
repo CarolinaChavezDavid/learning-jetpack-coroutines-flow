@@ -1,4 +1,4 @@
-#  <img width="50" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/4e7f8722-419a-481e-9da6-61da71ac628c"> learning-jetpack-coroutines-flow
+|1  #  <img width="50" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/4e7f8722-419a-481e-9da6-61da71ac628c"> learning-jetpack-coroutines-flow
 
 
 
@@ -42,7 +42,10 @@ Coroutines are light-weighted threads. Coroutines can be suspended and resume, i
 ### Coroutines Scopes
    
 Scopes control the lifetime of the coroutine, it defines when the coroutine is cancelled
-
+* **Global Scope** *Not recomendable for your app*
+* **View model Scope** Associated to the view model life-time
+* **Life Cycle scope** is tied to the lifetime of a cycle objects as main Activities and Fragments
+  
 ### Coroutines context 
 It's the core of a coroutine, is define on the scope and consist of several context elements, the most impost are: dispatcher, job, error handler and name
 
