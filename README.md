@@ -21,6 +21,15 @@ Coroutines are light-weighted threads. Coroutines can be suspended and resume, i
 > a general rule in concurrent programming is to avoid shared mutable states whenever is possible
 
 
+|                                                       **Structured concurrency**                                                       |                                **Unstructured concurrency**                               |
+|:--------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
+| Every coroutine needs to be started in a logical scope with a limited lifetime                                                         | Threads are started globally, is a developer's responsability keep track. of the lifetime |
+| Coroutines started in the same scope form a hierarchy                                                                                  | No hierarchy                                                                              |
+| A parent Job won't complete until all of it's children have completed                                                                  | All threads runs completely independent from  each other                                  |
+| Cancelling a parent will cancel all children,  cancelling a child won't cancel the parent or  siblings                                 | No automatic cancelation mechanism                                                        |
+| If a child coroutine fails, the exception is propagated upwards and depending of the Job type either all siblings are cancelled or not | No automatic exception handling                                                           |
+
+
 ### Coroutine builders
 
 * **async**
@@ -28,7 +37,7 @@ Coroutines are light-weighted threads. Coroutines can be suspended and resume, i
 * **runBlocking**
 * **withContext**
 
-* **Job** is a reference or a representation of the code that is started with launch. Can be use to check the state in which the coroutine is and can cancel the coroutine (Job.Join() suspends the coroutine to wait till it's done to finish)*
+> **Job** is a reference or a representation of the code that is started with launch. Can be use to check the state in which the coroutine is and can cancel the coroutine (Job.Join() suspends the coroutine to wait till it's done to finish)
 
 ### Coroutines Scopes
    
