@@ -1,9 +1,12 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.exceptionhandling
+package com.carolina.myapplication.playground.exceptionhandling // ktlint-disable filename
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 fun main() {
-
     val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         println("Caught exception: $throwable")
     }
@@ -24,5 +27,4 @@ fun main() {
     }
 
     Thread.sleep(5000)
-
 }

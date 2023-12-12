@@ -1,9 +1,8 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.exceptionhandling
+package com.carolina.myapplication.playground.exceptionhandling
 
 import kotlinx.coroutines.*
 
 fun main() {
-
     val ceh = CoroutineExceptionHandler { coroutineContext, throwable ->
         println("Caught $throwable in CoroutineExceptionHandler")
     }

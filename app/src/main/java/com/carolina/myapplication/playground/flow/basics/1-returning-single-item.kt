@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.flow.basics
+package com.carolina.myapplication.playground.flow.basics
 
 import java.math.BigInteger
 

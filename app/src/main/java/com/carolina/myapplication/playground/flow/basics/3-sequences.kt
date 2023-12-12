@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.flow.basics
+package com.carolina.myapplication.playground.flow.basics // ktlint-disable filename
 
 import com.lukaslechner.coroutineusecasesonandroid.playground.utils.printWithTimePassed
 import java.math.BigInteger
@@ -6,7 +6,7 @@ import java.math.BigInteger
 fun main() {
     val startTime = System.currentTimeMillis()
     calculateFactorialOf(5).forEach {
-        printWithTimePassed(it,startTime)
+        printWithTimePassed(it, startTime)
     }
     println("Ready for more work!")
 }

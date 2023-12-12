@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.flow.basics
+package com.carolina.myapplication.playground.flow.basics
 
 import com.lukaslechner.coroutineusecasesonandroid.playground.utils.printWithTimePassed
 import kotlinx.coroutines.Dispatchers

@@ -1,11 +1,10 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.exceptionhandling
+package com.carolina.myapplication.playground.exceptionhandling
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 fun main() {
-
     val scope = CoroutineScope(Job())
     try {
         scope.launch {

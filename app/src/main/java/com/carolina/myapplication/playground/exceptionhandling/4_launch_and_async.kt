@@ -1,9 +1,12 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.exceptionhandling
+package com.carolina.myapplication.playground.exceptionhandling
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 
 fun main() {
-
     val exceptionHandler = CoroutineExceptionHandler { context, exception ->
         println("Caught $exception in CoroutineExceptionHandler")
     }
@@ -18,5 +21,4 @@ fun main() {
     }
 
     Thread.sleep(1000)
-
 }
