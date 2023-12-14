@@ -1,4 +1,4 @@
-|1  #  <img width="50" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/4e7f8722-419a-481e-9da6-61da71ac628c"> learning-jetpack-coroutines-flow
+#  <img width="50" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/4e7f8722-419a-481e-9da6-61da71ac628c"> learning-jetpack-coroutines-flow
 
 
 
@@ -57,24 +57,50 @@ It's the core of a coroutine, is define on the scope and consist of several cont
 
 ### Suspend functions
 
-Suspend functions are special function that perform some long running operations in the main thread and can be suspended in every suspension point, can only be called from another suspend function or a coroutine
+Suspend functions are special function that perform some long running operations in the main thread and can be suspended in every suspension point, can only be called from another suspend function or a coroutine. A suspend fucntion return a single value from a asynchronous operation.
 
 * **Main-safety** The ability of calling suspend functions on the main thread in a non-blocking way
 
 
 # <img width="50" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/3b6c5c00-7669-4ebf-8a3f-cca86ad2a187"> Kotlin-Flow
 
-In coroutines, a flow is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value. For example, you can use a flow to receive live updates from a database.
+ ***<div align="center">A stream of values that are computed asynchronously</div>***
+ > **stream:** Data is receive continously instead of only once in the end. </br> **Asynchronous:** The execution of the code is not blocking the main thread
+
+
+A flow is a type in the Kotlin coroutine libriry, a flow is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value. For example, you can use a flow to receive live updates from a database.
+
+> **Reactive programming:** The foundation of reactive programming is the observe patter in which components can observer other components, receive state changes and react according to these changes. ***Live data*** Live data is a data holder that can be observed and whenever there is a new state we can react to it.
  
 <details> 
-
   <div align="center">
   <img width="600" alt="image" src="https://github.com/CarolinaChavezDavid/learning-jetpack-coroutines-flow/assets/77591347/7c89d5c2-49f1-4161-ae97-040d3f5e5d52">
   </div>
+</details>
 
+### Flow builders
+
+* `flowOf()` creates a flow from a fix set of values `flowOf(1, 2, 3)`
+* `asFlow()` is an extension function on various types to convert them into flows `listOf(1, 2, 3).asFlow()`
+* `flow{}` takes a lambda code block which means we can call regular and suspend functons.
+
+### Flow terminal operators
+
+Allow us to execute code in the flow
+
+* `collect()` is a suspend function and will suspend the function until the code is completed 
+* `first()`
+* `last()`
+* `single()` Returns only one value
+* `toSet()` 
+* `fold()` 
+* `launchIn()` Needs scope. Is a regular function, not a suspend function, therefore it doesn't suspend the coroutine in which it is called until the flow has completed. *Executes concurrently*
+* `asLivedata()` 
+
+
+* 
 
   
-</details>
 
 
 
