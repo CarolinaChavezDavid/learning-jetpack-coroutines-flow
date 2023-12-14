@@ -1,11 +1,10 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.flow.terminal_operators
+package com.carolina.myapplication.playground.flow.terminal_operators
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 
 fun main() {
-
     val flow = flow {
         delay(100)
 

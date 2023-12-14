@@ -1,4 +1,4 @@
-package com.lukaslechner.coroutineusecasesonandroid.playground.flow.terminal_operators
+package com.carolina.myapplication.playground.flow.terminal_operators
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.EmptyCoroutineContext
 
 fun main() {
-
     val flow = flow {
         delay(100)
 
